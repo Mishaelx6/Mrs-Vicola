@@ -48,7 +48,7 @@ const Videos = () => {
         initial="hidden"
         animate="visible"
       >
-        {videos.map((video, index) => (
+  {videos.map((video) => (
           <motion.div 
             key={video.id} 
             className="bg-white rounded-lg shadow-md overflow-hidden video-card"
