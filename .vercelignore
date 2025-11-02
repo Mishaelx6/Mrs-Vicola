@@ -4,7 +4,6 @@ dist
 .env
 .env.*
 README.md
-src/**
 *.log
 .DS_Store
 tests/**
