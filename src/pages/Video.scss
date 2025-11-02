@@ -1,0 +1,22 @@
+.video-page {
+  .video-main {
+    padding: 2rem 0;
+  }
+
+  .video-player-container {
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .video-content {
+    margin-top: 2rem;
+  }
+
+  .prose {
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+  }
+}

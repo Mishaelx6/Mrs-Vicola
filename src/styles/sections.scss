@@ -1,0 +1,135 @@
+// Dark theme color palette with enhanced contrast
+$colors: (
+  dark-bg-1: #fdfbfd,     // Deep navy blue
+  dark-bg-2: lch(98.27% 0.01 296.81),     // Dark blue
+  dark-bg-3: lab(98.02% 0.51 -0.37),     // Slate gray
+  dark-bg-4: hwb(0 100% 0%),     // Dark slate
+  dark-accent: #fcf9fb,    // Lighter slate
+  text-primary: #202020,   // Pure white for better contrast
+  text-secondary: hsl(0, 33%, 98%), // Very light gray for better readability
+  text-tertiary: #202020,  // Light gray for less important text
+  accent-blue: #60a5fa,    // Bright blue for interactive elements
+  accent-indigo: #818cf8,  // Bright indigo for highlights
+  link: #93c5fd,          // Light blue for links
+  button-text: #ffffff    // White text for buttons
+);
+
+// Mixins for consistent section styling
+@mixin section-dark-theme($bg-color) {
+  background-color: $bg-color;
+  position: relative;
+  overflow: hidden;
+
+  // Add a subtle text shadow for better readability
+  .section-title {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  // Section separator
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+  }
+}
+
+// Section-specific styles
+.hero-section {
+  @include section-dark-theme(map-get($colors, dark-bg-1));
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+
+  .hero-title {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #ffffff, #e2e8f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    color: map-get($colors, text-secondary);
+    margin-bottom: 2rem;
+  }
+}
+
+.about-section {
+  @include section-dark-theme(map-get($colors, dark-bg-2));
+  padding: 5rem 0;
+
+  .about-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: map-get($colors, text-primary);
+  }
+
+  .about-text {
+    font-size: 1.125rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+.videos-section {
+  @include section-dark-theme(map-get($colors, dark-bg-3));
+  padding: 5rem 0;
+
+  .video-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    .video-title {
+      color: map-get($colors, text-primary);
+      font-size: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .video-desc {
+      color: map-get($colors, text-secondary);
+    }
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    color: map-get($colors, text-secondary);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+}
+
+.cta-section {
+  @include section-dark-theme(map-get($colors, dark-bg-4));
+  padding: 5rem 0;
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #ffffff, #e2e8f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+}
